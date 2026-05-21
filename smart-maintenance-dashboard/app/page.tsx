@@ -1,13 +1,2 @@
 import Link from 'next/link'
-
-export default function HomePage() {
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-100 p-6">
-      <div className="w-full max-w-3xl rounded-2xl bg-white p-10 shadow-sm">
-        <h1 className="mb-4 text-4xl font-bold text-slate-900">Smart Maintenance Dashboard</h1>
-        <p className="mb-6 text-slate-600">Presentation-ready MVP using Next.js App Router, TypeScript, Tailwind, and mock data.</p>
-        <Link href="/dashboard" className="inline-block rounded-lg bg-blue-600 px-5 py-3 font-medium text-white">Open Dashboard</Link>
-      </div>
-    </main>
-  )
-}
+export default function Home(){return <main className='min-h-screen grid place-items-center bg-[#EEF2F8]'><div className='rounded-2xl bg-white p-8'><h1 className='text-3xl font-bold'>Maintenance Pro</h1><div className='mt-4 flex gap-3'><Link className='rounded bg-[#0B4EDB] px-4 py-2 text-white' href='/login'>Login</Link><Link className='rounded border px-4 py-2' href='/tenant/dashboard'>Open Dashboards</Link></div></div></main>}

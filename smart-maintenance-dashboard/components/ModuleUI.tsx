@@ -1,0 +1,17 @@
+import React from 'react'
+
+export const card = 'rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'
+
+export function PageHeader({ title, subtitle, actions }: { title: string; subtitle?: string; actions?: React.ReactNode }) {
+  return <div className='mb-6 flex items-start justify-between gap-4'><div><h1 className='text-4xl font-bold text-slate-900'>{title}</h1>{subtitle && <p className='mt-1 text-slate-600'>{subtitle}</p>}</div><div className='flex gap-2'>{actions}</div></div>
+}
+export function KPIStatCard({label,value,meta}:{label:string;value:string;meta?:string}){return <div className={card}><p className='text-xs uppercase text-slate-500'>{label}</p><p className='mt-2 text-4xl font-bold text-[#0B4EDB]'>{value}</p>{meta&&<p className='text-sm text-slate-500'>{meta}</p>}</div>}
+export function StatusBadge({value}:{value:string}){const c=value.toLowerCase();const cls=c.includes('breach')||c.includes('rejected')||c.includes('cancelled')?'bg-red-100 text-red-700':c.includes('progress')||c.includes('high')?'bg-amber-100 text-amber-700':c.includes('closed')||c.includes('verified')||c.includes('connected')||c.includes('active')?'bg-emerald-100 text-emerald-700':'bg-blue-100 text-blue-700';return <span className={`rounded-full px-2 py-1 text-xs font-semibold ${cls}`}>{value}</span>}
+export const PriorityBadge=StatusBadge
+export const SLABadge=StatusBadge
+export function FilterBar({children}:{children:React.ReactNode}){return <div className={`${card} mb-4 flex flex-wrap items-center gap-3`}>{children}</div>}
+export function DataTable({headers,rows}:{headers:string[];rows:React.ReactNode[][]}){return <div className='overflow-x-auto rounded-2xl border border-slate-200 bg-white'><table className='w-full text-sm'><thead className='bg-slate-50 text-slate-500'><tr>{headers.map(h=><th key={h} className='px-4 py-3 text-left'>{h}</th>)}</tr></thead><tbody>{rows.map((r,i)=><tr key={i} className='border-t'>{r.map((c,j)=><td key={j} className='px-4 py-3 align-top'>{c}</td>)}</tr>)}</tbody></table></div>}
+export function UploadBox({title,note}:{title:string;note:string}){return <div className={`${card} border-dashed`}><p className='font-semibold'>{title}</p><div className='mt-3 rounded-xl border-2 border-dashed border-slate-300 p-6 text-center text-slate-500'>Camera / Drag & Drop Upload</div><p className='mt-2 text-xs text-slate-500'>{note}</p><div className='mt-3 flex gap-2'><button className='rounded-lg border px-3 py-2'>Retake</button><button className='rounded-lg bg-[#0B4EDB] px-3 py-2 text-white'>Save</button></div></div>}
+export function Timeline({items}:{items:{title:string;time:string}[]}){return <div className={card}><h3 className='mb-2 font-semibold'>Timeline</h3>{items.map(i=><div key={i.title+i.time} className='mb-2 border-l-2 border-blue-200 pl-3'><p className='font-medium'>{i.title}</p><p className='text-xs text-slate-500'>{i.time}</p></div>)}</div>}
+export function EmptyState({title,desc}:{title:string;desc:string}){return <div className={`${card} text-center`}><p className='font-semibold'>{title}</p><p className='text-sm text-slate-500'>{desc}</p></div>}
+export function WhiteLabelPreview(){return <div className={card}><h3 className='font-semibold'>Live Preview</h3><div className='mt-3 rounded-xl bg-[#0B4EDB] p-4 text-white'><p className='text-xl font-bold'>Maintenance Pro</p><p className='text-sm'>Login / Email / Report Branding</p></div></div>}

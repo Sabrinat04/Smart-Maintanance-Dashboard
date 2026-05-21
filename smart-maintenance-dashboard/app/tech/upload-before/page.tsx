@@ -1,0 +1,3 @@
+import { AppShell } from '@/components/AppShell'
+import { PageHeader, UploadBox, card } from '@/components/ModuleUI'
+export default function Page(){return <AppShell role='tech' title='Upload Before Photo'><PageHeader title='Upload Before Photo' subtitle='Required before task completion.'/><div className='grid gap-4 xl:grid-cols-2'><UploadBox title='Before Work Photo' note='Accepted: JPG/PNG • Max size 8MB • Mandatory before completion.'/><div className={card}><h3 className='font-semibold'>Assigned Task</h3><p className='mt-2 text-sm'>WO-8291 • HVAC Failure • Skyline Tower Unit 14B</p><p className='mt-2 text-sm text-slate-600'>Only assigned technician can upload and lock evidence.</p></div></div></AppShell>}
