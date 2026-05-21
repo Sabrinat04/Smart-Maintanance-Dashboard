@@ -17,7 +17,7 @@ export function AppShell({ role, title, children }: { role: keyof typeof roleMen
                 <h3 className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-500">{sec.group}</h3>
                 <div className="space-y-1">
                   {sec.items.map((i) => (
-                    <Link key={i.href} href={i.href} className={`block rounded-xl px-4 py-3 ${path === i.href ? 'bg-blue-100 text-[#0B4EDB]' : 'hover:bg-white/60'}`}>
+                    <Link key={i.href} href={i.href} className={`block rounded-xl px-4 py-3 ${(path === i.href || path.startsWith(i.href + '/')) ? 'bg-blue-100 text-[#0B4EDB] border-r-4 border-[#0B4EDB]' : 'hover:bg-white/60'}`}>
                       {i.label}
                     </Link>
                   ))}
